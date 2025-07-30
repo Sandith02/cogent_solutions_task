@@ -253,7 +253,7 @@ app.get('/api/stats', async (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'Banking Conference API is running!',
+    message: 'Cogent Registration API is running!',
     database: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
     timestamp: new Date().toISOString()
   });
@@ -262,7 +262,7 @@ app.get('/api/health', (req, res) => {
 // Basic route for testing
 app.get('/', (req, res) => {
   res.json({
-    message: 'Banking Conference API',
+    message: 'Cogent Registration API',
     status: 'Running',
     endpoints: {
       register: 'POST /api/register',
@@ -287,7 +287,7 @@ const startServer = async () => {
   try {
     await connectDB();
     app.listen(PORT, () => {
-      console.log(`🚀 Banking Conference Server running on port ${PORT}`);
+      console.log(`🚀 Cogent Registration Server running on port ${PORT}`);
       console.log(`🌐 API Health Check: http://localhost:${PORT}/api/health`);
       console.log(`📊 Registration Stats: http://localhost:${PORT}/api/stats`);
     });
