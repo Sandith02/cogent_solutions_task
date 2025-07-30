@@ -38,18 +38,6 @@ const Agenda = () => {
     }
   };
 
-  const getSessionColor = (type) => {
-    switch (type) {
-      case 'registration': return 'from-blue-500 to-blue-600';
-      case 'keynote': return 'from-purple-500 to-pink-500';
-      case 'panel': return 'from-[#8B5F8C] to-purple-600';
-      case 'break': return 'from-green-500 to-emerald-600';
-      case 'lunch': return 'from-orange-500 to-red-500';
-      case 'presentation': return 'from-indigo-500 to-purple-600';
-      default: return 'from-gray-500 to-gray-600';
-    }
-  };
-
   const agendaItems = [
     {
       time: "09:30 AM",
@@ -126,7 +114,7 @@ const Agenda = () => {
   ];
 
   return (
-    <section id="agenda" className="bg-black py-10 lg:py-20">
+    <section id="agenda" className="bg-black py-20 lg:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -148,7 +136,7 @@ const Agenda = () => {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-4 md:left-24 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#8B5F8C] via-purple-500 to-pink-500"></div>
+            {/* <div className="absolute left-4 md:left-24 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#8B5F8C] to-purple-400"></div> */}
 
             {/* Agenda Items */}
             <div className="space-y-8">
@@ -160,21 +148,23 @@ const Agenda = () => {
                 >
                   {/* Time Badge */}
                   <div className="flex-shrink-0 relative z-10">
-                    <div className={`bg-gradient-to-r ${getSessionColor(item.type)} text-white px-4 py-2 rounded-full font-semibold text-sm md:text-base min-w-[100px] text-center shadow-lg`}>
+                    {/* <div className="bg-gradient-to-r from-[#8B5F8C] to-purple-600 text-white px-4 py-2 rounded-full font-semibold text-sm md:text-base min-w-[100px] text-center shadow-lg">
                       {item.time}
-                    </div>
+                    </div> */}
                     {/* Timeline dot */}
-                    <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 translate-x-4 md:translate-x-8">
-                      <div className={`w-4 h-4 bg-gradient-to-r ${getSessionColor(item.type)} rounded-full shadow-lg`}></div>
-                    </div>
+                    {/* <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 translate-x-4 md:translate-x-8">
+                      <div className="w-4 h-4 bg-gradient-to-r from-[#8B5F8C] to-purple-600 rounded-full shadow-lg"></div>
+                    </div> */}
                   </div>
 
                   {/* Content Card */}
                   <div className="flex-1 bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-10 hover:bg-opacity-10 transition-all duration-300 group">
                     <div className="flex items-start gap-4">
                       {/* Session Icon */}
-                      <div className={`flex-shrink-0 p-2 bg-gradient-to-r ${getSessionColor(item.type)} text-white rounded-lg group-hover:scale-110 transition-transform duration-300`}>
-                        {getSessionIcon(item.type)}
+                      <div className="flex-shrink-0 p-2 bg-[#8B5F8C] bg-opacity-20 rounded-lg group-hover:bg-opacity-30 transition-all duration-300">
+                        <div className="text-[#8B5F8C]">
+                          {getSessionIcon(item.type)}
+                        </div>
                       </div>
 
                       {/* Session Details */}
@@ -183,11 +173,12 @@ const Agenda = () => {
                           <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-purple-200 transition-colors duration-300">
                             {item.title}
                           </h3>
-                          {/* Session Type Badge - Inline with title */}
-                          <span className={`inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r ${getSessionColor(item.type)} text-white text-xs font-medium rounded-full opacity-80 ml-4 flex-shrink-0`}>
-                            {getSessionIcon(item.type)}
-                            {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                          {/* Session Type Badge - Simplified */}
+                          <span className="inline-flex items-center gap-1 px-3 py-1 bg-white bg-opacity-10 text-gray-300 text-xs font-medium rounded-full ml-4 flex-shrink-0">
+                            {item.time}
+                            {/* {item.type.charAt(0).toUpperCase() + item.type.slice(1)} */}
                           </span>
+                          
                         </div>
                         {item.speaker && (
                           <p className="text-gray-400 text-sm md:text-base leading-relaxed">

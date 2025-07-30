@@ -55,10 +55,10 @@ const Footer = () => {
           </div>
 
           {/* Right Column - Office Information */}
-          <div className="space-y-8">
+          <div className="space-y-1">
             <h2 className="text-2xl font-bold">Our office</h2>
             
-            <div className="space-y-6">
+            <div className="space-y-1">
               {/* Middle East & Africa HQ */}
               <div className="group hover:bg-gray-900 hover:bg-opacity-50 p-4 rounded-lg transition-all duration-300">
                 <div className="flex items-start gap-3 mb-2">
@@ -95,7 +95,7 @@ const Footer = () => {
               </div>
 
               {/* Contact Information */}
-              <div className="space-y-3 pt-4 border-t border-gray-800">
+              <div className="space-y-3 pt-4 border-t border-gray-300">
                 <div className="flex items-center gap-3 group hover:text-purple-300 transition-colors cursor-pointer">
                   <Phone className="w-5 h-5 text-[#8B5F8C] group-hover:text-purple-400 transition-colors" />
                   <span className="text-gray-300">+971 4 550 643 5244</span>
@@ -111,10 +111,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-16 pt-8">
+        <div className="border-t border-white mt-10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Copyright */}
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-300 text-sm">
               © 2025 Cogent Solutions Event Management LLC. All Right Reserved
             </div>
 
@@ -122,28 +122,28 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <a 
                 href="#" 
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
+                className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
+                className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
+                className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
+                className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-[#8B5F8C] transition-colors duration-300 group"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
