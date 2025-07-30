@@ -34,7 +34,7 @@ const Speakers = () => {
       name: "Mr. Marwan Abouzeid",
       title: "Principal Solutions Consultant & Customer Value Lead",
       company: "MEA & APAC Finastra",
-      image: "/Person 01.jpeg",
+      image: "/Mr. Marwan Abouzeid.jpg",
       bio: "Marwan Abouzeid is a seasoned professional with over 22 years of experience in the Fintech industry. Currently serving as the Principal Solutions Consultant & Customer Value Lead for MEA and APAC at Finastra, Marwan is known for his strategic consulting, customer relationship management, and business development expertise. His role involves ensuring Finastra adopts the right Go-to-Market strategy for its core banking platform, blending direct strategic customer engagements for both conventional and Islamic banks with complementary marketing and business development activities. Marwan's direct KPIs include C-level engagements such as ideation sessions, strategy formulation, and business case construction. Marwan's career background spans various roles in development, product management, professional services, and presales. He has proven ability in technology consultative selling for financial institutions seeking transformation and innovation. His extensive experience and dedication have made him a key player in the industry, contributing to significant projects and initiatives that drive growth and innovation. Prior to his journey at Finastra Marwan has held multiple roles within the financial industry working for both banking solution providers and financial institutions. Marwan holds an MBA from Manchester Business School and a bachelor's degree in computer science from The American University in Cairo."
     },
     {
@@ -42,98 +42,98 @@ const Speakers = () => {
       name: "Ms. Siobhan Byron",
       title: "Executive Vice President",
       company: "Universal Banking Finastra",
-      image: "/Person 01.jpeg"
+      image: "/Ms. Siobhan Byron.jpg",
     },
     {
       id: 3,
       name: "Mr. Rudy Kawmi",
       title: "Managing Director - Middle East, Africa & Asia-Pacific",
       company: "Finastra Universal Banking",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Rudy Kawmi.jpg",
     },
     {
       id: 4,
       name: "Mr. Narendra Mistry",
       title: "Chief Product and Technology Officer",
       company: "Universal Banking Finastra",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Narendra Mistry.jpg"
     },
     {
       id: 5,
       name: "Mr. Mohamed Elazzazy",
       title: "Head of IT Governance and Change Management",
       company: "Al-Baraka Bank Egypt",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Mohamed Elazzazy.png"
     },
     {
       id: 6,
       name: "Mr. Shehab Moustafa",
       title: "Country Center of Excellence Director",
       company: "Money Fellows",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Shehab Moustafa.jpg"
     },
     {
       id: 7,
       name: "Mr. Karim El Mourabet",
       title: "Solution Consulting Director - MEA",
       company: "Finastra",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Karim El Mourabet.jpg"
     },
     {
       id: 8,
       name: "Mr. Ahmed Hamdy Bahey El Din",
       title: "Head of Information Technology",
       company: "Incolease",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Ahmed Hamdy Bahey El Din.jpeg"
     },
     {
       id: 9,
       name: "Mr. Emad Shawky Habib Hanna",
       title: "Chief Data and Analytics Officer",
       company: "Banque Misr",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Emad Shawky Habib Hanna.jpeg"
     },
     {
       id: 10,
       name: "Ms. Heba Yehia",
       title: "Head of Digital Products",
       company: "Arab African International Bank",
-      image: "/Person 01.jpeg"
+      image: "/Ms. Heba Yehia.jpg"
     },
     {
       id: 11,
       name: "Mr. Hamid Nirouzad",
       title: "Managing Director - Africa",
       company: "Finastra Universal",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Hamid Nirouzad.jpg"
     },
     {
       id: 12,
       name: "Mr. Matthew Hughes",
       title: "Head of FS&I, International Markets",
       company: "Atos",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Matthew Hughes.jpg"
     },
     {
       id: 13,
       name: "Mr. Daragh O'Byrne",
       title: "Senior Director, Marketing",
       company: "Universal Banking, Finastra",
-      image: "/Person 01.jpeg"
+      image: "/Mr. Daragh O'Byrne.JPG"
     },
     {
       id: 14,
       name: "Dr. Ismail Ali",
       title: "Co-Founder and CEO",
       company: "CARITech",
-      image: "/Person 01.jpeg"
+      image: "/Dr. Ismail Ali.jpg",
     },
     {
       id: 15,
       name: "Ms. Riham Muhammad",
       title: "Corporate CEX Senior Analyst",
       company: "FABMISR",
-      image: "/Person 01.jpeg"
+      image: "/Ms. Riham Muhammad.png"
     }
   ];
 
