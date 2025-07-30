@@ -76,7 +76,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="h-screen bg-gradient-to-b from-[#471949] via-[#010101] to-black flex items-center relative overflow-hidden">
+    <section className="min-h-screen pt-20  bg-gradient-to-b from-[#471949] via-[#010101] to-black flex items-center relative overflow-hidden py-8">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
@@ -111,10 +111,10 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="grid lg:grid-cols-2 gap-16 items-start"
         >
           {/* Left Column - Text Content */}
-          <div className="space-y-16">
+          <div className="space-y-12">
             {/* Main Heading with animations */}
             <div className="text-white">
               <motion.h1
@@ -169,8 +169,7 @@ const Hero = () => {
                   <Calendar className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
                 <div>
-                  <span className="font-light text-gray-300">Date: </span>
-                  <span className="font-medium">9th April 2025</span>
+                  <span className="font-thin">9th April 2025</span>
                 </div>
               </motion.div>
 
@@ -187,8 +186,7 @@ const Hero = () => {
                   <Clock className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
                 <div>
-                  <span className="font-light text-gray-300">Time: </span>
-                  <span className="font-medium">9:30 AM - 2:00 PM GMT+2</span>
+                  <span className="font-thin">9:30 AM - 2:00 PM GMT+2</span>
                 </div>
               </motion.div>
 
@@ -204,76 +202,120 @@ const Hero = () => {
                 >
                   <MapPin className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
-                <div className="font-medium">
+                <div className="font-thin">
                   The Nile Ritz-Carlton, Cairo, Egypt
                 </div>
               </motion.div>
             </motion.div>
-          </div>
 
-          {/* Right Column - Animated Image */}
-          <motion.div
-            variants={imageVariants}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative group">
+            {/* Organized By Section - Now on Left */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
+              className="text-left pt-8 md:pt-20 lg:pt-40"
+            >
               <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.5 }}
-                className="w-full max-w-[580px] h-[300px] md:h-[380px] rounded-rt-[60px] overflow-hidden shadow-2xl relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.9 }}
+                transition={{ delay: 1.7 }}
+                className="text-white text-xl md:text-2xl font-normal mb-4"
               >
-                <img
-                  src="/Finastra-UB-Egypt-Event-Overview SMALL.jpg"
-                  alt="Banking professionals in meeting"
-                  className="w-full h-full object-cover"
-                />
-                {/* Animated gradient overlay */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"
+                Organized By
+              </motion.div>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 1.9, duration: 0.8, ease: "backOut" }}
+                className="flex items-center justify-start gap-4"
+              >
+                <motion.img
+                  src="/Asset 2@4x.webp"
+                  alt="Finastra Logo"
+                  className="h-5 md:h-8 lg:h-10 w-auto"
                 />
               </motion.div>
-              {/* Floating decorative element */}
+            </motion.div>
+          </div>
+
+          {/* Right Column - Image and About Section */}
+          <div className="space-y-8">
+            {/* Animated Image */}
+            <motion.div
+              variants={imageVariants}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative group">
+                <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full max-w-[580px] h-[300px] md:h-[380px] rounded-rt-[60px] overflow-hidden shadow-2xl relative"
+                >
+                  <img
+                    src="/Finastra-UB-Egypt-Event-Overview SMALL.jpg"
+                    alt="Banking professionals in meeting"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Animated gradient overlay */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"
+                  />
+                </motion.div>
+                {/* Floating decorative element */}
+                <motion.div
+                  variants={floatVariants}
+                  animate="float"
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
+                />
+              </div>
+            </motion.div>
+
+            {/* About Finastra Section - Now on Right */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 2, duration: 1 }}
+              className="text-white max-w-[580px] mx-auto lg:mx-0"
+            >
+              <motion.h3
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.2 }}
+                className="text-xl md:text-1xl font-regular mb-4 text-white"
+              >
+                About Finastra
+              </motion.h3>
               <motion.div
-                variants={floatVariants}
-                animate="float"
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
-              />
-            </div>
-          </motion.div>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.9 }}
+                transition={{ delay: 2.4 }}
+                className="text-gray-300 text-base font-light md:text-[1rem] leading-relaxed space-y-4"
+              >
+                <p>
+                  Finastra is a global provider of financial services software applications 
+                  across Lending, Payments, Treasury and Capital Markets, and Universal 
+                  (retail and digital) Banking. Committed to unlocking the potential of 
+                  people, businesses and communities everywhere, its vision is to 
+                  accelerate the future of Open Finance through technology and 
+                  collaboration, and its pioneering approach is why it is trusted by 
+                  ~8,100 financial institutions, including 45 of the world's top 50 banks.
+                </p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2.6 }}
+                  className="text-purple-300"
+                >
+                  For more information, visit www.finastra.com.
+                </motion.p>
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
-
-      {/* Animated Finastra Branding */}
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-0 right-0 text-center"
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.9 }}
-          transition={{ delay: 1.7 }}
-          className="text-white text-xl md:text-2xl font-normal mb-4"
-        >
-          Organized By
-        </motion.div>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1.9, duration: 0.8, ease: "backOut" }}
-          className="flex items-center justify-center gap-4 mb-5"
-        >
-          <motion.img
-            src="/Asset 2@4x.webp"
-            alt="Finastra Logo"
-            className="h-5 md:h-8 lg:h-10 w-auto"
-          />
-        </motion.div>
-      </motion.div>
 
       {/* Animated Scroll indicator */}
       <motion.div
