@@ -18,9 +18,9 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('✅ MongoDB Atlas connected successfully');
+    console.log('MongoDB Atlas connected successfully');
   } catch (error) {
-    console.error('❌ MongoDB connection failed:', error);
+    console.error('MongoDB connection failed:', error);
     process.exit(1);
   }
 };
@@ -143,7 +143,7 @@ app.post('/api/register', async (req, res) => {
     // Save to database
     await registration.save();
 
-    console.log(`✅ New registration: ${firstName} ${lastName} (${email})`);
+    console.log(`New registration: ${firstName} ${lastName} (${email})`);
 
     res.status(201).json({
       success: true,
@@ -157,7 +157,7 @@ app.post('/api/register', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Registration error:', error);
+    console.error('Registration error:', error);
 
     // Handle duplicate email error
     if (error.code === 11000) {
@@ -196,7 +196,7 @@ app.get('/api/registrations', async (req, res) => {
       data: registrations
     });
   } catch (error) {
-    console.error('❌ Error fetching registrations:', error);
+    console.error('Error fetching registrations:', error);
     res.status(500).json({
       success: false,
       error: 'Failed to fetch registrations'
@@ -241,7 +241,7 @@ app.get('/api/stats', async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('❌ Error fetching stats:', error);
+    console.error('Error fetching stats:', error);
     res.status(500).json({
       success: false,
       error: 'Failed to fetch statistics'
@@ -275,7 +275,7 @@ app.get('/', (req, res) => {
 
 // Error handling middleware
 app.use((error, req, res, next) => {
-  console.error('❌ Server error:', error);
+  console.error('Server error:', error);
   res.status(500).json({
     success: false,
     error: 'Internal server error'
@@ -287,12 +287,12 @@ const startServer = async () => {
   try {
     await connectDB();
     app.listen(PORT, () => {
-      console.log(`🚀 Cogent Registration Server running on port ${PORT}`);
-      console.log(`🌐 API Health Check: http://localhost:${PORT}/api/health`);
-      console.log(`📊 Registration Stats: http://localhost:${PORT}/api/stats`);
+      console.log(`Cogent Registration Server running on port ${PORT}`);
+      console.log(`API Health Check: http://localhost:${PORT}/api/health`);
+      console.log(`Registration Stats: http://localhost:${PORT}/api/stats`);
     });
   } catch (error) {
-    console.error('❌ Failed to start server:', error);
+    console.error('Failed to start server:', error);
     process.exit(1);
   }
 };
