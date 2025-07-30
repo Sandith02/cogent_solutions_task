@@ -249,7 +249,7 @@ const Hero = () => {
                 <motion.div
                   whileHover={{ scale: 1.05, rotateY: 5 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full max-w-[580px] h-[300px] md:h-[380px] rounded-rt-[60px] overflow-hidden shadow-2xl relative"
+                  className="w-full max-w-[580px] h-[300px] md:h-[380px] rounded-alg md:rounded-[60px] overflow-hidden shadow-2xl relative"
                 >
                   <img
                     src="/Finastra-UB-Egypt-Event-Overview SMALL.jpg"

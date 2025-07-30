@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Mail, Building, Phone, Globe, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { User, Mail, Building, Phone, Globe, CheckCircle, ArrowRight, Sparkles, AlertCircle, Loader } from 'lucide-react';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,8 @@ const Registration = () => {
   });
 
   const [focusedField, setFocusedField] = useState('');
+  const [submitStatus, setSubmitStatus] = useState(''); // 'loading', 'success', 'error'
+  const [statusMessage, setStatusMessage] = useState('');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,12 +46,54 @@ const Registration = () => {
       ...prev,
       [field]: value
     }));
+    // Clear status when user starts typing
+    if (submitStatus) setSubmitStatus('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Registration data:', formData);
-    // Handle form submission here
+    setSubmitStatus('loading');
+
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setStatusMessage(result.message || 'Registration successful! We look forward to seeing you at the event.');
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          jobTitle: '',
+          company: '',
+          mobile: '',
+          email: '',
+          website: '',
+          agreeToPolicy: false
+        });
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('Network error. Please check your connection and try again.');
+      console.error('Registration error:', error);
+    }
+
+    // Auto-clear status after 8 seconds
+    setTimeout(() => {
+      setSubmitStatus('');
+      setStatusMessage('');
+    }, 8000);
   };
 
   const FormField = ({ icon: Icon, label, field, type = "text", required = true }) => (
@@ -69,11 +113,12 @@ const Registration = () => {
           onChange={(e) => handleInputChange(field, e.target.value)}
           onFocus={() => setFocusedField(field)}
           onBlur={() => setFocusedField('')}
+          disabled={submitStatus === 'loading'}
           className={`w-full pl-12 pr-4 py-4 bg-white bg-opacity-10 backdrop-blur-sm border-2 rounded-xl text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:scale-105 ${
             focusedField === field 
               ? 'border-purple-400 bg-opacity-20 shadow-lg shadow-purple-500/20' 
               : 'border-white border-opacity-20 hover:border-opacity-30'
-          }`}
+          } ${submitStatus === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
           required={required}
         />
         {formData[field] && (
@@ -86,7 +131,7 @@ const Registration = () => {
   );
 
   return (
-    <section id="register" className="bg-black py-20 lg:py-32">
+    <section id="register" className="bg-black py-10 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -150,6 +195,7 @@ const Registration = () => {
                     id="privacy-policy"
                     checked={formData.agreeToPolicy}
                     onChange={(e) => handleInputChange('agreeToPolicy', e.target.checked)}
+                    disabled={submitStatus === 'loading'}
                     className="mt-1 w-4 h-4 text-purple-600 bg-transparent border-gray-300 rounded focus:ring-purple-500"
                   />
                   <label htmlFor="privacy-policy" className="text-sm text-gray-300 leading-relaxed">
@@ -161,20 +207,49 @@ const Registration = () => {
                   </label>
                 </motion.div>
 
+                {/* Status Messages */}
+                {submitStatus && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-xl flex items-center gap-3 ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-500 bg-opacity-20 text-green-200 border border-green-500 border-opacity-30' 
+                        : submitStatus === 'error'
+                        ? 'bg-red-500 bg-opacity-20 text-red-200 border border-red-500 border-opacity-30'
+                        : 'bg-purple-500 bg-opacity-20 text-purple-200 border border-purple-500 border-opacity-30'
+                    }`}
+                  >
+                    {submitStatus === 'loading' && <Loader className="w-5 h-5 animate-spin" />}
+                    {submitStatus === 'success' && <CheckCircle className="w-5 h-5" />}
+                    {submitStatus === 'error' && <AlertCircle className="w-5 h-5" />}
+                    <span className="text-sm">{statusMessage}</span>
+                  </motion.div>
+                )}
+
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  disabled={!formData.agreeToPolicy}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  disabled={!formData.agreeToPolicy || submitStatus === 'loading'}
+                  whileHover={!formData.agreeToPolicy && submitStatus !== 'loading' ? {} : { scale: 1.05 }}
+                  whileTap={!formData.agreeToPolicy && submitStatus !== 'loading' ? {} : { scale: 0.95 }}
                   className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
-                    formData.agreeToPolicy 
+                    formData.agreeToPolicy && submitStatus !== 'loading'
                       ? 'bg-gradient-to-r from-[#8B5F8C] to-purple-600 hover:from-purple-600 hover:to-[#8B5F8C] text-white shadow-lg hover:shadow-2xl hover:shadow-purple-500/25' 
                       : 'bg-gray-600 text-gray-400 cursor-not-allowed'
                   }`}
                 >
-                  Register
-                  <ArrowRight className="w-5 h-5" />
+                  {submitStatus === 'loading' ? (
+                    <>
+                      <Loader className="w-5 h-5 animate-spin" />
+                      Registering...
+                    </>
+                  ) : (
+                    <>
+                      Register
+                      <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
                 </motion.button>
               </form>
             </motion.div>

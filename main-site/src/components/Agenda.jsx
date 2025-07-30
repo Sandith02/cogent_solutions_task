@@ -114,7 +114,7 @@ const Agenda = () => {
   ];
 
   return (
-    <section id="agenda" className="bg-black py-20 lg:py-32">
+    <section id="agenda" className="bg-black py-10 lg:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
