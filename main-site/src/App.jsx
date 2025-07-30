@@ -5,6 +5,7 @@ import EventOverview from './components/EventOverview'
 import Agenda from './components/Agenda'
 import Speakers from './components/Speakers'
 import Registration from './components/Registration'
+import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen">
@@ -14,7 +15,7 @@ function App() {
       <Agenda />
       <Speakers />
       <Registration />
-      {/* Other sections... */}
+      <Footer />
     </div>
   )
 }
