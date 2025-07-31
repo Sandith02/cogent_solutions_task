@@ -76,7 +76,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen pt-20  bg-gradient-to-b from-[#471949] via-[#010101] to-black flex items-center relative overflow-hidden py-8">
+    <section className="min-h-screen pt-20 bg-gradient-to-b from-[#471949] via-[#010101] to-black flex items-center relative overflow-hidden py-8">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
@@ -111,22 +111,54 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-16 items-start"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
         >
           {/* Left Column - Text Content */}
-          <div className="space-y-12">
+          <div className="space-y-8 lg:space-y-12">
             {/* Main Heading with animations */}
             <div className="text-white">
               <motion.h1
                 variants={headingVariants}
-                className="text-4xl md:text-5xl lg:text-4xl font-regular leading-tight mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-regular leading-tight mb-2"
               >
                 Reimagine Banking:
               </motion.h1>
+              {/* Mobile: Two lines, Desktop: One line */}
+              <div className="block lg:hidden">
+                <motion.h2
+                  variants={headingVariants}
+                  transition={{ delay: 0.3 }}
+                  className="text-3xl sm:text-4xl font-bold leading-tight"
+                >
+                  <motion.span
+                    initial={{ backgroundPosition: "0% 50%" }}
+                    animate={{ backgroundPosition: "100% 50%" }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "linear"
+                    }}
+                    className="bg-gradient-to-r from-white via-purple-100 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_auto]"
+                  >
+                    Adapt. Evolve.
+                  </motion.span>
+                </motion.h2>
+                <motion.h2
+                  variants={headingVariants}
+                  transition={{ delay: 0.5 }}
+                  className="text-3xl sm:text-4xl font-bold leading-tight"
+                >
+                  <span className="bg-gradient-to-r from-white via-purple-100 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_auto]">
+                    Thrive.
+                  </span>
+                </motion.h2>
+              </div>
+              {/* Desktop: Single line */}
               <motion.h2
                 variants={headingVariants}
                 transition={{ delay: 0.3 }}
-                className="text-5xl md:text-5xl lg:text-6xl font-bold leading-tight whitespace-nowrap"
+                className="hidden lg:block text-5xl md:text-5xl lg:text-6xl font-bold leading-tight whitespace-nowrap"
               >
                 <motion.span
                   initial={{ backgroundPosition: "0% 50%" }}
@@ -154,19 +186,19 @@ const Hero = () => {
             {/* Event Details with staggered animations */}
             <motion.div
               variants={containerVariants}
-              className="text-white text-lg md:text-xl space-y-6"
+              className="text-white text-base sm:text-lg md:text-xl space-y-4 lg:space-y-6"
             >
               <motion.div
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="flex items-center gap-4 group cursor-pointer"
+                className="flex items-center gap-3 lg:gap-4 group cursor-pointer"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                   className="p-2 bg-[#8B5F8C] bg-opacity-20 rounded-full group-hover:bg-opacity-30 transition-all duration-300"
                 >
-                  <Calendar className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
+                  <Calendar className="w-5 h-5 lg:w-6 lg:h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
                 <div>
                   <span className="font-thin">9th April 2025</span>
@@ -176,14 +208,14 @@ const Hero = () => {
               <motion.div
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="flex items-center gap-4 group cursor-pointer"
+                className="flex items-center gap-3 lg:gap-4 group cursor-pointer"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                   className="p-2 bg-[#8B5F8C] bg-opacity-20 rounded-full group-hover:bg-opacity-30 transition-all duration-300"
                 >
-                  <Clock className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
+                  <Clock className="w-5 h-5 lg:w-6 lg:h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
                 <div>
                   <span className="font-thin">9:30 AM - 2:00 PM GMT+2</span>
@@ -193,14 +225,14 @@ const Hero = () => {
               <motion.div
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="flex items-center gap-4 group cursor-pointer"
+                className="flex items-center gap-3 lg:gap-4 group cursor-pointer"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                   className="p-2 bg-[#8B5F8C] bg-opacity-20 rounded-full group-hover:bg-opacity-30 transition-all duration-300"
                 >
-                  <MapPin className="w-6 h-6 text-[#8B5F8C] flex-shrink-0" />
+                  <MapPin className="w-5 h-5 lg:w-6 lg:h-6 text-[#8B5F8C] flex-shrink-0" />
                 </motion.div>
                 <div className="font-thin">
                   The Nile Ritz-Carlton, Cairo, Egypt
@@ -213,13 +245,13 @@ const Hero = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
-              className="text-left pt-8 md:pt-20 lg:pt-40"
+              className="text-left pt-4 md:pt-8 lg:pt-40"
             >
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.9 }}
                 transition={{ delay: 1.7 }}
-                className="text-white text-xl md:text-2xl font-normal mb-4"
+                className="text-white text-lg sm:text-xl md:text-2xl font-normal mb-4"
               >
                 Organized By
               </motion.div>
@@ -232,15 +264,15 @@ const Hero = () => {
                 <motion.img
                   src="/Asset 2@4x.webp"
                   alt="Finastra Logo"
-                  className="h-5 md:h-8 lg:h-10 w-auto"
+                  className="h-4 sm:h-5 md:h-8 lg:h-10 w-auto"
                 />
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Right Column - Image and About Section */}
-          <div className="space-y-8">
-            {/* Animated Image */}
+          {/* Right Column - Image and About Section - Hidden on mobile */}
+          <div className="hidden sm:block space-y-6 lg:space-y-8">
+            {/* Animated Image - Smaller on tablets */}
             <motion.div
               variants={imageVariants}
               className="flex justify-center lg:justify-end"
@@ -249,7 +281,7 @@ const Hero = () => {
                 <motion.div
                   whileHover={{ scale: 1.05, rotateY: 5 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full max-w-[580px] h-[300px] md:h-[380px] rounded-alg md:rounded-[60px] overflow-hidden shadow-2xl relative"
+                  className="w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[380px] rounded-lg md:rounded-[60px] overflow-hidden shadow-2xl relative"
                 >
                   <img
                     src="/Finastra-UB-Egypt-Event-Overview SMALL.jpg"
@@ -268,7 +300,7 @@ const Hero = () => {
                 <motion.div
                   variants={floatVariants}
                   animate="float"
-                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
+                  className="absolute -bottom-4 -left-4 w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
                 />
               </div>
             </motion.div>
@@ -278,13 +310,13 @@ const Hero = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 2, duration: 1 }}
-              className="text-white max-w-[580px] mx-auto lg:mx-0"
+              className="text-white max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] mx-auto lg:mx-0"
             >
               <motion.h3
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.2 }}
-                className="text-xl md:text-1xl font-regular mb-4 text-white"
+                className="text-lg sm:text-xl md:text-1xl font-regular mb-3 lg:mb-4 text-white"
               >
                 About Finastra
               </motion.h3>
@@ -292,7 +324,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.9 }}
                 transition={{ delay: 2.4 }}
-                className="text-gray-300 text-base font-light md:text-[1rem] leading-relaxed space-y-4"
+                className="text-gray-300 text-sm sm:text-base font-light leading-relaxed space-y-3 lg:space-y-4"
               >
                 <p>
                   Finastra is a global provider of financial services software applications 
@@ -331,7 +363,7 @@ const Hero = () => {
         }}
         className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white"
       >
-        <ChevronDown className="w-5 h-5" />
+        <ChevronDown className="w-4 h-4 lg:w-5 lg:h-5" />
       </motion.div>
     </section>
   );
