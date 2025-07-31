@@ -2,7 +2,7 @@
 The task for the Full Stack Developer Internship at Cogent Solution
 
 🚀 Live Demo
-Frontend: https://cogent-solutions-task.vercel.app/
+Link: https://cogent-solutions-task.vercel.app/
 
 - Note: Registration form submissions may experience a 20-30 second delay on first load due to Render's free tier server hibernation.
 
