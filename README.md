@@ -3,8 +3,8 @@ The task for the Full Stack Developer Internship at Cogent Solution
 
 ## Tech Stack
 - Frontend: React, Tailwind CSS, Framer Motion
-- Backend: Node.js, Express, MongoDB Atlas
-- Deployment: Vercel + Railway
+- Backend: Node.js, MongoDB Atlas
+- Deployment: Vercel + Render
 
 ## Features
 - Responsive design
