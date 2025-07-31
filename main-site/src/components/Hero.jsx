@@ -270,18 +270,18 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Column - Image and About Section - Hidden on mobile */}
-          <div className="hidden sm:block space-y-6 lg:space-y-8">
-            {/* Animated Image - Smaller on tablets */}
+          {/* Right Column - Image (desktop only) and About Section */}
+          <div className="space-y-6 lg:space-y-8">
+            {/* Animated Image - Desktop only */}
             <motion.div
               variants={imageVariants}
-              className="flex justify-center lg:justify-end"
+              className="hidden lg:flex justify-end"
             >
               <div className="relative group">
                 <motion.div
                   whileHover={{ scale: 1.05, rotateY: 5 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[380px] rounded-lg md:rounded-[60px] overflow-hidden shadow-2xl relative"
+                  className="w-full max-w-[580px] h-[380px] rounded-[60px] overflow-hidden shadow-2xl relative"
                 >
                   <img
                     src="/Finastra-UB-Egypt-Event-Overview SMALL.jpg"
@@ -300,23 +300,23 @@ const Hero = () => {
                 <motion.div
                   variants={floatVariants}
                   animate="float"
-                  className="absolute -bottom-4 -left-4 w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#8B5F8C] to-purple-600 rounded-full opacity-30 blur-xl"
                 />
               </div>
             </motion.div>
 
-            {/* About Finastra Section - Now on Right */}
+            {/* About Finastra Section - Visible on all screens */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 2, duration: 1 }}
-              className="text-white max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] mx-auto lg:mx-0"
+              className="text-white max-w-[580px] mx-auto lg:mx-0"
             >
               <motion.h3
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.2 }}
-                className="text-lg sm:text-xl md:text-1xl font-regular mb-3 lg:mb-4 text-white"
+                className="text-lg sm:text-xl md:text-2xl font-regular mb-3 lg:mb-4 text-white"
               >
                 About Finastra
               </motion.h3>
