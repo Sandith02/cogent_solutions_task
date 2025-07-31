@@ -3,24 +3,25 @@ import { motion } from 'framer-motion';
 import { Clock, User, Users, Coffee, Utensils, Mic, MessageSquare } from 'lucide-react';
 
 const Agenda = () => {
+  // Simplified motion variants that work on mobile
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.2,
+        duration: 0.5,
         staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { x: -30, opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
-      x: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut"
       }
     }
@@ -120,7 +121,7 @@ const Agenda = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
@@ -199,8 +200,9 @@ const Agenda = () => {
               Ready to join us for this incredible day?
             </p>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
               className="inline-flex items-center gap-3 bg-gradient-to-r from-[#8B5F8C] to-purple-600 hover:from-purple-600 hover:to-[#8B5F8C] px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25"
             >
               <Clock className="w-5 h-5" />
