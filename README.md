@@ -1,6 +1,11 @@
 # Cogent Solutions task for Internship
 The task for the Full Stack Developer Internship at Cogent Solution
 
+🚀 Live Demo
+Frontend: https://cogent-solutions-task.vercel.app/
+
+- Note: Registration form submissions may experience a 20-30 second delay on first load due to Render's free tier server hibernation.
+
 ## Tech Stack
 - Frontend: React, Tailwind CSS, Framer Motion
 - Backend: Node.js, MongoDB Atlas
