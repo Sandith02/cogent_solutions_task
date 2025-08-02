@@ -1,4 +1,4 @@
-# Cogent Solutions task for Internship
+# Cogent Solutions Task
 The task for the Full Stack Developer Internship at Cogent Solution
 
 🚀 Live Demo
